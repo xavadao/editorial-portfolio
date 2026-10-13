@@ -104,8 +104,8 @@ export const PROJECTS = [
 const CATEGORIES = ['All', 'Brand Direction', 'Art Direction', 'Photography', 'Visual Identity', 'Fashion Editorial'];
 
 export default function WorkPage() {
-  useScrollReveal();
   const [activeFilter, setActiveFilter] = useState('All');
+  useScrollReveal(activeFilter);
 
   const filtered = activeFilter === 'All'
     ? PROJECTS

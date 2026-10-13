@@ -173,7 +173,7 @@ export default function ContactPage() {
                 letterSpacing: '-0.03em',
                 color: 'hsl(30 10% 94%)',
               }}>
-                Message received.
+                Demo completed.
               </h2>
               <p style={{
                 fontFamily: "'DM Sans', sans-serif",
@@ -181,7 +181,7 @@ export default function ContactPage() {
                 color: 'hsl(30 5% 52%)',
                 lineHeight: 1.7,
               }}>
-                I'll be in touch within 48 hours. In the meantime, take a look at my work.
+                This is a demo form. Your message was not sent or saved.
               </p>
             </div>
           ) : (

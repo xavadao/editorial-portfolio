@@ -1,45 +1,45 @@
-# Nullshot Beta
+# Vibed Editorial
 
-A modern React 19 template with Vite, Tailwind CSS v4, and Cloudflare Workers.
+A standalone editorial design portfolio demo built with React, React Router, Vite, and Tailwind CSS.
+
+[Live demo](https://vibed-editorial.xavainf.com)
 
 ## Features
 
-- **React 19** - Latest React with new features
-- **Vite** - Fast dev server with instant HMR
-- **Tailwind CSS v4** - Utility-first styling (config in \`src/react-app/globals.css\` only; no \`tailwind.config.js\`)
-- **TypeScript** - Type-safe development
-- **Hono** - Lightweight API framework for Workers
-- **React Query** - Data fetching and caching
+- Responsive home, about, work, and contact pages.
+- Project filtering, image galleries, and project detail navigation.
+- Scroll reveals and carefully styled typography.
+- Static hosting on Cloudflare Workers Static Assets.
 
-## Local Development
+## Install and develop
+
+Requires Node.js 22 or later and pnpm.
 
 ```bash
-# Install dependencies
 pnpm install
-
-# Start dev server
 pnpm dev
 ```
 
-## File Structure
+## Build and preview
 
-```
-src/
-├── react-app/
-│   ├── app.tsx       # Main React component
-│   ├── main.tsx      # Client entry point
-│   └── globals.css   # Tailwind + global styles
-└── worker/
-    └── index.ts      # Hono API routes + asset serving
+```bash
+pnpm build
+pnpm preview
 ```
 
-## API Routes
+The production build is written to `dist`. Preview uses Wrangler to test the same static routing used in production.
 
-Routes are defined in `/src/worker/index.ts`:
+## Deploy
 
-- `GET /api/health` - Health check
-- `GET /api/` - API info
-- `POST /api/echo` - Echo request body
-- `GET /api/data` - Example data endpoint
+Authenticate Wrangler with an account that can manage the configured Cloudflare account and `xavainf.com` zone:
 
-All other routes serve the React SPA.
+```bash
+pnpm exec wrangler login
+pnpm deploy
+```
+
+`wrangler.jsonc` configures the `vibed-editorial.xavainf.com` custom domain. Update the account ID and domain when deploying your own copy.
+
+## Demo limitations
+
+Portfolio identities, project descriptions, testimonials, and contact details are sample content. The contact form demonstrates a confirmation state in the browser; it does not send email or save submissions. Social and journal links are illustrative. Images load from Unsplash and fonts load from Google Fonts, so those services need to be reachable. There is no authentication, database, or backend API.

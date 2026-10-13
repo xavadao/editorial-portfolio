@@ -1,17 +1,8 @@
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import { cloudflare } from '@cloudflare/vite-plugin';
 
-// https://vite.dev/config/
 export default defineConfig({
-	plugins: [
-		react(),
-		tailwindcss(),
-		cloudflare(),
-	],
-	server: {
-		port: 8000,
-		host: true,
-	},
+  plugins: [react(), tailwindcss()],
+  server: { port: 8000, host: true },
 });
