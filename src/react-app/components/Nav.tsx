@@ -5,6 +5,8 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const overHero = location.pathname === '/' && !scrolled;
+  const inactiveColor = overHero ? 'hsl(30 10% 90%)' : 'hsl(30 5% 52%)';
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -59,7 +61,7 @@ export default function Nav() {
           alignItems: 'center',
           justifyContent: 'space-between',
           transition: 'background 500ms cubic-bezier(0.25,0.1,0.25,1), border-color 500ms',
-          background: scrolled ? 'hsl(0 0% 4% / 0.92)' : 'transparent',
+          background: scrolled ? 'hsl(0 0% 4% / 0.92)' : overHero ? 'linear-gradient(180deg, rgba(10,10,10,.78), rgba(10,10,10,.48))' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           borderBottom: scrolled ? '1px solid hsl(0 0% 14%)' : '1px solid transparent',
         }}
@@ -101,7 +103,7 @@ export default function Nav() {
                 textTransform: 'uppercase',
                 color: location.pathname === l.to
                   ? 'hsl(38 45% 60%)'
-                  : 'hsl(30 5% 52%)',
+                  : inactiveColor,
                 textDecoration: 'none',
                 transition: 'color 250ms ease',
               }}
@@ -111,7 +113,7 @@ export default function Nav() {
               }}
               onMouseLeave={(e) => {
                 if (location.pathname !== l.to)
-                  (e.target as HTMLElement).style.color = 'hsl(30 5% 52%)';
+                  (e.target as HTMLElement).style.color = inactiveColor;
               }}
             >
               {l.label}

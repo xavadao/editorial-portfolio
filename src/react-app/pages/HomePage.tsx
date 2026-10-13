@@ -120,7 +120,8 @@ export default function HomePage() {
             fontSize: '0.75rem',
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: 'hsl(38 45% 60%)',
+            color: 'hsl(30 10% 94%)',
+            textShadow: '0 1px 3px rgba(0,0,0,.85)',
             marginBottom: '1.5rem',
           }}>
             Art Direction &amp; Visual Identity
