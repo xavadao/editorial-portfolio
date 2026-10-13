@@ -1,0 +1,11 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "app-vitest",
+	"main": "./src/worker/index.ts",
+	"compatibility_date": "2026-01-07",
+	"compatibility_flags": ["nodejs_compat"],
+	"vars": {
+		"ENVIRONMENT": "vitest",
+		"DEBUG_LEVEL": "WARN"
+	}
+}
