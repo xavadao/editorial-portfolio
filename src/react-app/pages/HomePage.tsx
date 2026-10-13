@@ -73,7 +73,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)' }}>
+    <main data-page="home" id="main-content" tabIndex={-1} style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)' }}>
 
       {/* ── HERO ── */}
       <section
@@ -265,7 +265,7 @@ export default function HomePage() {
         </div>
 
         {/* Editorial grid */}
-        <div style={{
+        <div className="work-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(12, 1fr)',
           gridTemplateRows: 'auto',
@@ -422,7 +422,7 @@ export default function HomePage() {
           {SERVICES.map((s, i) => (
             <div
               key={s.num}
-              className={`reveal delay-${(i + 1) * 100}`}
+              className={`reveal service-row delay-${(i + 1) * 100}`}
               style={{
                 display: 'grid',
                 gridTemplateColumns: '80px 1fr 1fr',

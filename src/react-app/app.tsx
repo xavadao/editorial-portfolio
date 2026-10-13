@@ -16,6 +16,8 @@ import AboutPage from './pages/AboutPage';
 import WorkPage from './pages/WorkPage';
 import WorkDetailPage from './pages/WorkDetailPage';
 import ContactPage from './pages/ContactPage';
+import { XavaInfCredit } from './components/XavaInfCredit';
+import { PageHead } from './components/PageHead';
 
 /** Reset scroll position on every route change — prevents IntersectionObserver
  *  from seeing below-fold elements as already-intersecting from a prior scroll. */
@@ -40,14 +42,17 @@ function RootLayout() {
 	return (
 		<>
 			<ScrollToTop />
+      <PageHead />
+      <a className="skip-link" href="#main-content">Skip to content</a>
 			<Nav />
 			<Outlet />
 			<Footer />
+      <XavaInfCredit />
 		</>
 	);
 }
 
-const router = createBrowserRouter([
+export const appRoutes = [
 	{
 		path: '/',
 		element: <RootLayout />,
@@ -57,14 +62,17 @@ const router = createBrowserRouter([
 			{ path: 'work', element: <WorkPage /> },
 			{ path: 'work/:id', element: <WorkDetailPage /> },
 			{ path: 'contact', element: <ContactPage /> },
+      { path: '*', element: <main id="main-content" tabIndex={-1} style={{ padding: '8rem 2rem', minHeight: '70vh' }}><h1>Page not found</h1><a href="/">Return home</a></main> },
 		],
 	},
-]);
+];
+
+const router = typeof document === 'undefined' ? null : createBrowserRouter(appRoutes);
 
 export default function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
+			{router && <RouterProvider router={router} />}
 		</QueryClientProvider>
 	);
 }

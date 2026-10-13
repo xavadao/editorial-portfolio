@@ -1,0 +1,12 @@
+# Alex Morgan — Creative Direction
+
+> A sample creative direction portfolio with six projects spanning brand, editorial, and image design.
+
+## Pages
+- [Home](https://vibed-editorial.xavainf.com/)
+- [Selected work](https://vibed-editorial.xavainf.com/work)
+- [About](https://vibed-editorial.xavainf.com/about)
+- [Demo contact](https://vibed-editorial.xavainf.com/contact)
+
+## Scope
+This is a demonstration. Identities, project descriptions, achievements, and contact details are sample content. The contact form does not send or save messages. No backend or live business service is available.

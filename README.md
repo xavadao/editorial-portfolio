@@ -1,4 +1,4 @@
-# Vibed Editorial
+# Alex Morgan — Creative Direction
 
 A standalone editorial design portfolio demo built with React, React Router, Vite, and Tailwind CSS.
 
@@ -43,3 +43,7 @@ pnpm deploy
 ## Demo limitations
 
 Portfolio identities, project descriptions, testimonials, and contact details are sample content. The contact form demonstrates a confirmation state in the browser; it does not send email or save submissions. Social and journal links are illustrative. Images load from Unsplash and fonts load from Google Fonts, so those services need to be reachable. There is no authentication, database, or backend API.
+
+## Search and accessibility
+
+The Vite build also renders every bundled route to real HTML with per-page metadata, canonical URLs, and truthful sample structured data. React hydrates that markup and preserves client navigation. Missing routes serve a 404 page. Robots, sitemap, and `llms.txt` describe the demo scope, and every page links “Made with XavaInf” to XavaInf.

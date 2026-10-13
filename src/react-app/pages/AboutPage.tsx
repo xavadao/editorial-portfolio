@@ -31,7 +31,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)', paddingTop: '72px' }}>
+    <main data-page="about" id="main-content" tabIndex={-1} style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)', paddingTop: '72px' }}>
 
       {/* ── PAGE HEADER ── */}
       <section style={{

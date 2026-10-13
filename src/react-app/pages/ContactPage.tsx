@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useScrollReveal } from '../components/useScrollReveal';
 
 export default function ContactPage() {
   useScrollReveal();
   const [form, setForm] = useState({ name: '', email: '', project: '', message: '' });
   const [sent, setSent] = useState(false);
+  useEffect(() => { if (sent) document.getElementById('contact-confirmation')?.focus(); }, [sent]);
   const [focused, setFocused] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,7 +29,7 @@ export default function ContactPage() {
   });
 
   return (
-    <main style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)', paddingTop: '72px' }}>
+    <main data-page="contact" id="main-content" tabIndex={-1} style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)', paddingTop: '72px' }}>
 
       {/* ── OPENING STATEMENT ── */}
       <section style={{
@@ -166,7 +167,7 @@ export default function ContactPage() {
                 height: '1px',
                 background: 'hsl(38 45% 60%)',
               }} />
-              <h2 style={{
+              <h2 id="contact-confirmation" tabIndex={-1} role="status" style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
                 fontWeight: 500,
@@ -188,7 +189,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
               {/* Name */}
               <div style={{ marginBottom: '0.5rem' }}>
-                <label style={{
+                <label htmlFor="contact-name" style={{
                   display: 'block',
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '0.6875rem',
@@ -202,7 +203,7 @@ export default function ContactPage() {
                 <input
                   type="text"
                   required
-                  placeholder="Your name"
+                  id="contact-name" name="name" autoComplete="name" placeholder="Your name"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: (e.target as HTMLInputElement).value })}
                   onFocus={() => setFocused('name')}
@@ -213,7 +214,7 @@ export default function ContactPage() {
 
               {/* Email */}
               <div style={{ marginBottom: '0.5rem' }}>
-                <label style={{
+                <label htmlFor="contact-email" style={{
                   display: 'block',
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '0.6875rem',
@@ -227,7 +228,7 @@ export default function ContactPage() {
                 <input
                   type="email"
                   required
-                  placeholder="your@email.com"
+                  id="contact-email" name="email" autoComplete="email" spellCheck={false} placeholder="your@email.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: (e.target as HTMLInputElement).value })}
                   onFocus={() => setFocused('email')}
@@ -238,7 +239,7 @@ export default function ContactPage() {
 
               {/* Project type */}
               <div style={{ marginBottom: '0.5rem' }}>
-                <label style={{
+                <label htmlFor="contact-project" style={{
                   display: 'block',
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '0.6875rem',
@@ -251,7 +252,7 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Brand identity, campaign, digital..."
+                  id="contact-project" name="project" placeholder="Brand identity, campaign, digital..."
                   value={form.project}
                   onChange={(e) => setForm({ ...form, project: (e.target as HTMLInputElement).value })}
                   onFocus={() => setFocused('project')}
@@ -262,7 +263,7 @@ export default function ContactPage() {
 
               {/* Message */}
               <div style={{ marginBottom: '3rem' }}>
-                <label style={{
+                <label htmlFor="contact-message" style={{
                   display: 'block',
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '0.6875rem',
@@ -275,7 +276,7 @@ export default function ContactPage() {
                 </label>
                 <textarea
                   rows={5}
-                  placeholder="What are you working on? What do you need?"
+                  id="contact-message" name="message" placeholder="What are you working on? What do you need?"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: (e.target as HTMLTextAreaElement).value })}
                   onFocus={() => setFocused('message')}

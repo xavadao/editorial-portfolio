@@ -5,7 +5,7 @@
  * The App component contains React Router and React Query setup.
  */
 
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './app';
 import './globals.css';
 
@@ -15,4 +15,5 @@ if (!rootElement) {
 	throw new Error('Root element not found');
 }
 
-createRoot(rootElement).render(<App />);
+if (rootElement.hasChildNodes()) hydrateRoot(rootElement, <App />);
+else createRoot(rootElement).render(<App />);

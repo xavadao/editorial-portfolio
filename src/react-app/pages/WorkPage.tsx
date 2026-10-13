@@ -112,7 +112,7 @@ export default function WorkPage() {
     : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <main style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)', paddingTop: '72px' }}>
+    <main data-page="work" id="main-content" tabIndex={-1} style={{ background: 'hsl(0 0% 4%)', color: 'hsl(30 10% 94%)', paddingTop: '72px' }}>
 
       {/* ── PAGE HEADER ── */}
       <section style={{
@@ -168,6 +168,7 @@ export default function WorkPage() {
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
+            aria-pressed={activeFilter === cat}
             onClick={() => setActiveFilter(cat)}
             style={{
               fontFamily: "'DM Sans', sans-serif",
@@ -199,7 +200,7 @@ export default function WorkPage() {
 
       {/* ── EDITORIAL GRID ── */}
       <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 2.5rem' }}>
-        <div style={{
+        <div className="work-editorial-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(12, 1fr)',
           gap: '1.5rem',
@@ -310,7 +311,7 @@ function ProjectTile({
       )}
 
       {/* Text */}
-      <div style={{
+      <div className="project-tile-caption" style={{
         position: 'absolute',
         bottom: 0,
         left: 0,

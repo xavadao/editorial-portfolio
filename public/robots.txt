@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vibed-editorial.xavainf.com/sitemap.xml
